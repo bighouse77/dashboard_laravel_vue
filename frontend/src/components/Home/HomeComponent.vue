@@ -1,17 +1,16 @@
 <template>
-    <div>
-        <p>Home</p>
-    </div>
+    <DashboardComponent />
 </template>
 
 
 <script>
+    import DashboardComponent from '../Dashboard/DashboardComponent.vue';
+
     export default {
-        
+        components: {
+            DashboardComponent,
+        }
     }
 </script>
 
-
-<style scoped>
-    
-</style>
+<style src="./style.css" scoped></style>
