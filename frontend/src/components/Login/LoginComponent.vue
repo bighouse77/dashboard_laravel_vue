@@ -40,7 +40,7 @@
                 this.$router.push({name: 'home'})
             },
             help() {
-                alert('Se vira parceiro, toma essa manga')
+                alert('Se vira parceiro, chupa essa manga')
             }
         },
     }
