@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap'); 
 
 .main {
     display: flex;
@@ -32,12 +33,18 @@
     text-align: center;
     justify-content: center;
     color: #293746;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 .content-login header h1 {
-    font-size: 39px;
+    font-size: 37px;
     font-weight: 900;
+}
+
+.content-login header p {
+    font-size: 45px;
+    font-weight: 50;
+    font-family: 'Gugi';
 }
 
 .content-login form {

@@ -4,6 +4,7 @@
             <div class="content-login">
                 <header>
                     <h1>Autenticação</h1>
+                    <p>Netschool</p>
                 </header>
 
                 <div class="form">
