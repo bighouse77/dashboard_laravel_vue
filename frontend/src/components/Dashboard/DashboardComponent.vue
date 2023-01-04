@@ -10,7 +10,7 @@
             </div>
             
             <div class="pages">
-                esqueleto pages
+                
             </div>
         </div>
     </div>

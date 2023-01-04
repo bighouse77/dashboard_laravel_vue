@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <p>Sidebar Component</p>
+    <div class="sidebar">
+        <img class="logo" src="@/assets/logo.png" alt="">
     </div>
 </template>
 
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+.sidebar {
+    text-align: center;
+}
 </style>

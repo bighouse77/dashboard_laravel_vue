@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4 class="logo"> <i class="fa-sharp fa-solid fa-chalkboard-user"></i>    
-           Netschool Dashboard
+            &nbsp;Netschool Dashboard
         </h4>
     </div>
 </template>
