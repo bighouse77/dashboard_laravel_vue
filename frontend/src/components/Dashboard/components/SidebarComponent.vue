@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <div class="topo">
-            <div class="avatar">
+            <div>
                 <span>
                     <img src="@/assets/logo.png" alt="">
                 </span>     
@@ -11,7 +11,7 @@
                 <p class="name">Maurício Casagrande</p>
                 <p class="status">Online</p>
             </div>
-
+        
             <hr>
         </div>
         
@@ -21,16 +21,21 @@
                     <i class="fa-solid fa-house-user"></i>
                     &nbsp;&nbsp;&nbsp;Início
                 </router-link></li>
+
                 <li><router-link :to="{name: 'produtos'}">
                     <i class="fa-solid fa-store"></i>
                     &nbsp;&nbsp;&nbsp;Produtos
                 </router-link></li>
+
                 <li><router-link :to="{name: 'atendimentos'}">
                     <i class="fa-solid fa-headset"></i>
-                    &nbsp;&nbsp;&nbsp;Atendimentos</router-link></li>
+                    &nbsp;&nbsp;&nbsp;Atendimentos
+                </router-link></li>
+
                 <li><router-link :to="{name: 'relatorios'}">
                     <i class="fa-sharp fa-solid fa-chart-simple"></i>
-                    &nbsp;&nbsp;&nbsp;Relatórios</router-link></li>
+                    &nbsp;&nbsp;&nbsp;Relatórios
+                </router-link></li>
             </ul>
         </div>
         
@@ -76,13 +81,23 @@ export default {
     font-weight: 100;
 }
 
+.menu ul {
+    margin: 0px;
+    padding: 0px;
+}
+
 .menu ul li {
     list-style: none;
     font-style: none; 
-    padding: 15px 5px;
+    padding: 20px 40px;
+}
+
+.menu ul li:hover {
+    background-color: #4e6783;
 }
 
 .menu ul li a {
+    width: 100%;
     color: white;
     text-decoration: none;
 }
