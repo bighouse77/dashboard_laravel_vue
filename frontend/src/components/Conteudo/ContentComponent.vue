@@ -3,25 +3,20 @@
         <template v-slot:slot-pages>
             <div class="content-pages">
                 <header class="title-pages">
-                    Início
-                </header>
+                    Conteúdos
+                </header> 
             </div>
-
-            <CardsComponent/>
-
         </template>
     </DashboardComponent>
 </template>
 
 <script>
 import DashboardComponent from '../Dashboard/DashboardComponent.vue';
-import CardsComponent from '../CardsComponent.vue';
 
 export default {
-    name: 'HomeComponent',
+    name: 'ContentComponent',
     components: {
         DashboardComponent,
-        CardsComponent
     }
 }
 </script>

@@ -22,9 +22,9 @@
                     &nbsp;&nbsp;&nbsp;Início
                 </router-link></li>
 
-                <li><router-link :to="{name: 'produtos'}">
-                    <i class="fa-solid fa-store"></i>
-                    &nbsp;&nbsp;&nbsp;Produtos
+                <li><router-link :to="{name: 'content'}">
+                    <i class="fa-solid fa-book-open"></i>
+                    &nbsp;&nbsp;&nbsp;Conteúdo
                 </router-link></li>
 
                 <li><router-link :to="{name: 'atendimentos'}">

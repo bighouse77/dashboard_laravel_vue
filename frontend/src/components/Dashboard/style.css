@@ -15,7 +15,6 @@
 .content-right {
     width: calc(100% - 220px);
     height: 100vh;
-    /*background-color: orange;*/
 }
 
 .navbar {
@@ -28,5 +27,5 @@
 .pages {
     width: 100%;
     height: auto;
-    /*background-color: red;*/
+    padding: 25px;
 }
