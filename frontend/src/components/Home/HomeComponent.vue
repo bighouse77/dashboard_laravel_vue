@@ -52,10 +52,10 @@
             <div class="mt-5">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <ListsComponent :data="users" :description="'Professores'" :columns="['Nome', 'E-mail', 'Website']" />
+                        <ListsComponent :data="professores" :description="'Professores'" :columns="['Nome', 'E-mail', 'Website']" />
                     </div>
                     <div class="col-12 col-md-6">
-                        <ListsComponent :data="users" :description="'Conteudistas'" :columns="['Nome', 'E-mail', 'Disciplina']" />
+                        <ListsComponent :data="conteudistas" :description="'Conteudistas'" :columns="['Nome', 'E-mail', 'Disciplina']" />
                     </div>
                 </div>
             </div>
@@ -79,20 +79,23 @@ export default {
     },
     data() {
         return{
-            users: []
+            professores: [],
+            conteudistas: []
         }  
     },
     methods: {
         // GET
         async getUsers() {
             // MAKE A REQUEST FOR A USER WITH A GIVEN ID
-            const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+            let response = await axios.get('http://localhost:8000/api') 
             if (response.status == 200) {
-                this.users = response.data;
+                this.professores = response.data.professores;
+                this.conteudistas = response.data.conteudistas;
             } else {
                 console.error("Erro na API");
             }
-        }
+        },
+
     },
     components: {
         DashboardComponent,

@@ -3,6 +3,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import LoginComponent from '@/components/Login/LoginComponent'
 import HomeComponent from '@/components/Home/HomeComponent'
 import ContentComponent from '@/components/Conteudo/ContentComponent'
+import AtendimentosComponent from '@/components/Atendimentos/AtendimentosComponent'
+import RelatoriosComponent from '@/components/Relatorios/RelatoriosComponent'
 
 const routes = [
   {
@@ -21,15 +23,15 @@ const routes = [
     component: ContentComponent
   },
   {
-    path: '/relatorios',
-    name: 'relatorios',
-    component: HomeComponent
-  },
-  {
     path: '/atendimentos',
     name: 'atendimentos',
-    component: HomeComponent
+    component: AtendimentosComponent
   },
+  {
+    path: '/relatorios',
+    name: 'relatorios',
+    component: RelatoriosComponent
+  }, 
 ]
 
 const router = createRouter({

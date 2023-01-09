@@ -20,7 +20,7 @@
                   <tr v-for="user in data" :key="user.id">
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.website }}</td>
+                    <td>{{ user.website}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -34,7 +34,7 @@ export default {
     props: {
       data: Array,
       description: String,
-      columns: []
+      columns: {}
     }
 }
 </script>
