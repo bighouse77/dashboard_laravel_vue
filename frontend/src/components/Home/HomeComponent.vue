@@ -30,21 +30,21 @@
 
                 <div class="col-12 col-md-3">
                     <CardsComponent 
-                        :type="'Inscrições'" 
+                        :type="'Professores'" 
                         :updown="'fa-solid fa-arrow-up'" 
                         :percentage="'35%'" 
                         :icon="'fa-solid fa-people-group'"
-                        :qtd="'7.000'"
+                        :qtd="professores.length"
                     />
                 </div>
 
                 <div class="col-12 col-md-3">
                     <CardsComponent 
-                        :type="'Abandonos'" 
+                        :type="'Conteudistas'" 
                         :updown="'fa-solid fa-arrow-up'" 
                         :percentage="'18%'" 
-                        :icon="'fa-solid fa-heart-crack'"
-                        :qtd="'1.899'"
+                        :icon="'fa-solid fa-book-open'"
+                        :qtd="conteudistas.length"
                     />
                 </div>
             </div>

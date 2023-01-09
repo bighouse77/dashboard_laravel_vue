@@ -20,7 +20,7 @@
                   <tr v-for="user in data" :key="user.id">
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.website}}</td>
+                    <td>{{ description == 'Professores' ? user.website : user.disciplina}}</td>
                   </tr>
                 </tbody>
               </table>
