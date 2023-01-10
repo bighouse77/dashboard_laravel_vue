@@ -20,9 +20,13 @@
                   <tr v-for="user in data" :key="user.id">
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ description == 'Professores' ? user.website : user.disciplina}}</td>
+                    <td class="btn-style">
+                      {{ description == 'Professores' ? user.website : user.disciplina}}
+                      <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </td>
                   </tr>
                 </tbody>
+                
               </table>
         </div>
     </div>
@@ -35,6 +39,11 @@ export default {
       data: Array,
       description: String,
       columns: {}
+    },
+    methods: {
+      edit(){
+        return console.log('Editando');
+      }
     }
 }
 </script>
@@ -51,5 +60,16 @@ export default {
 .top p {
   font-size: 23px;
   font-family: 'Inter';
+}
+
+.btn-style {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-style button {
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
 }
 </style>
