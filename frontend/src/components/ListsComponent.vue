@@ -22,11 +22,14 @@
                     <td>{{ user.email }}</td>
                     <td class="btn-style">
                       {{ description == 'Professores' ? user.website : user.disciplina}}
-                      <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </td>
-                  </tr>
+                      <div class="actions">
+                        <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button @click="delete"><i class="fa-solid fa-trash"></i></button>
+                      </div>
+                    </td>     
+                  </tr>        
                 </tbody>
-                
+
               </table>
         </div>
     </div>
@@ -71,5 +74,9 @@ export default {
   border: none;
   font-size: 16px;
   background-color: transparent;
+}
+
+.actions {
+  padding: 5px;
 }
 </style>
