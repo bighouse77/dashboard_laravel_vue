@@ -3,47 +3,18 @@
 namespace App\Http\Controllers\ApiDash;
 
 use App\Http\Controllers\Controller;
+use App\Models\Models\Professor;
+use App\Models\Models\Conteudista;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
     public function index() 
     {   
-        $professores = [
-            [
-                'id' => 1,
-                'name' => 'Renato Luciano Cagnin',
-                'email' => 'renato@fho.edu.br',
-                'website' => 'www.cagnin.com.br'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Maurício Acconcia Dias',
-                'email' => 'macdias@fho.edu.br',
-                'website' => 'www.macdias.com.br'
-            ]
-        ];
-
-        $conteudistas = [
-            [
-                'id' => 1,
-                'name' => 'Daniel Ferreira',
-                'email' => 'daniel.ferreira@fho.edu.br',
-                'disciplina' => 'Sistemas de Controle'
-            ],
-            [
-                'id' => 2,
-                'name' => 'William Douglas Paes Coelho',
-                'email' => 'william@fho.edu.br',
-                'disciplina' => 'Mecânica dos Sólidos'
-            ],
-            [
-                'id' => 3,
-                'name' => 'Marcus Vinicius Ataide',
-                'email' => 'marcus@fho.edu.br',
-                'disciplina' => 'Eletrônica'
-            ]
-        ];
+        $professores = Professor::all();
+        
+        $conteudistas = Conteudista::all();
 
         return response()->json([
             'professores' => $professores,

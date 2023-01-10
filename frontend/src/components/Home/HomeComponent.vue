@@ -2,9 +2,15 @@
     <DashboardComponent>
         <template v-slot:slot-pages>
             <div class="content-pages">
+
+                <div class="alert alert-danger" role="alert">
+                    Erro ao comsumir API
+                 </div>
+
                 <header class="title-pages">
                     Início
                 </header>
+
             </div>
 
             <div class="row">
@@ -75,7 +81,7 @@ const axios = require('axios').default;
 export default {
     name: 'HomeComponent',
     mounted() {
-        this.getUsers();
+        this.getData();
     },
     data() {
         return{
@@ -84,15 +90,23 @@ export default {
         }  
     },
     methods: {
-        // GET
-        async getUsers() {
-            // MAKE A REQUEST FOR A USER WITH A GIVEN ID
-            let response = await axios.get('http://localhost:8000/api') 
-            if (response.status == 200) {
-                this.professores = response.data.professores;
-                this.conteudistas = response.data.conteudistas;
-            } else {
-                console.error("Erro na API");
+        
+        async getData() { 
+            try {
+
+                let response = await axios.get('http://localhost:8000/api') 
+
+                if (response.status == 200) {
+                    this.professores = response.data.professores;
+                    this.conteudistas = response.data.conteudistas;
+                } else {
+                    
+                    console.log('Erro ao comsumir API');
+        
+                }
+
+            } catch (error) {
+                console.log('Erro ao comsumir API');
             }
         },
 
