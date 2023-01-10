@@ -24,13 +24,16 @@
                       {{ description == 'Professores' ? user.website : user.disciplina}}
                       <div class="actions">
                         <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button @click="delete"><i class="fa-solid fa-trash"></i></button>
+                        <button @click="erase"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
                   </tr>        
                 </tbody>
-
               </table>
+
+              <div class="add">
+                <button @click="add"><i class="fa-solid fa-plus"></i></button>
+              </div>
         </div>
     </div>
 </template>
@@ -46,6 +49,12 @@ export default {
     methods: {
       edit(){
         return console.log('Editando');
+      },
+      erase(){
+        return console.log('Deletando');
+      },
+      add(){
+        return console.log('Inserindo');
       }
     }
 }
@@ -78,5 +87,11 @@ export default {
 
 .actions {
   padding: 5px;
+}
+
+.add {
+  border: none;
+  display: flex;
+  justify-content: right;
 }
 </style>

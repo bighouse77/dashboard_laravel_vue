@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Models\Professor;
 use App\Models\Models\Conteudista;
 use Illuminate\Http\Request;
+use DB;
 
 
 class HomeController extends Controller
