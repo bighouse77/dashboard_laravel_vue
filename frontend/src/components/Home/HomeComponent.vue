@@ -3,9 +3,9 @@
         <template v-slot:slot-pages>
             <div class="content-pages">
 
-                <div class="alert alert-danger" role="alert">
-                    Erro ao comsumir API
-                 </div>
+                <div v-if="errorOn" class="alert alert-danger alert" role="alert">
+                    Erro ao consumir API
+                </div>
 
                 <header class="title-pages">
                     Início
@@ -86,7 +86,8 @@ export default {
     data() {
         return{
             professores: [],
-            conteudistas: []
+            conteudistas: [],
+            errorOn: false
         }  
     },
     methods: {
@@ -100,13 +101,11 @@ export default {
                     this.professores = response.data.professores;
                     this.conteudistas = response.data.conteudistas;
                 } else {
-                    
-                    console.log('Erro ao comsumir API');
-        
+                    this.errorOn = true;
                 }
 
             } catch (error) {
-                console.log('Erro ao comsumir API');
+                this.errorOn = true;
             }
         },
 
