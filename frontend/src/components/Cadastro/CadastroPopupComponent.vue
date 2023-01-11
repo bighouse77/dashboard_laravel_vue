@@ -15,7 +15,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Website</label>
+                        <label for="exampleInputText" class="form-label">{{ description }}</label>
                         <input type="text" class="form-control" id="exampleInputText" placeholder="www.exemplo.com.br">
                       </div>
 
@@ -39,6 +39,9 @@ export default {
         popup() {
             this.$emit('close');
         }
+    },
+    props: {
+        description: Array
     }
 }
 </script>

@@ -35,7 +35,9 @@
                 <button @click="add"><i class="fa-solid fa-plus"></i></button>
               </div>
 
-              <CadastroPopupComponent @close="closePopup" v-if="showPopup"/>
+              <CadastroPopupComponent @close="closePopup" v-if="showPopup"
+                :description=info[0]
+              />
 
         </div>
     </div>
@@ -48,6 +50,7 @@ export default {
     name: "ListsComponent",
     props: {
         data: Array,
+        info: Array,
         description: String,
         columns: {},
     },

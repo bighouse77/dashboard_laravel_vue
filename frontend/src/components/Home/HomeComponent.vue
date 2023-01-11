@@ -58,10 +58,20 @@
             <div class="mt-5">
                 <div class="row">
                     <div class="col-12 col-md-6">
-                        <ListsComponent :data="professores" :description="'Professores'" :columns="['Nome', 'E-mail', 'Website']" />
+                        <ListsComponent 
+                            :data="professores"
+                            :info="['Website']"
+                            :description="'Professores'" 
+                            :columns="['Nome', 'E-mail', 'Website']" 
+                        />
                     </div>
                     <div class="col-12 col-md-6">
-                        <ListsComponent :data="conteudistas" :description="'Conteudistas'" :columns="['Nome', 'E-mail', 'Disciplina']" />
+                        <ListsComponent 
+                            :data="conteudistas"
+                            :info="['Disciplina']"
+                            :description="'Conteudistas'" 
+                            :columns="['Nome', 'E-mail', 'Disciplina']" 
+                        />
                     </div>
                 </div>
             </div>
