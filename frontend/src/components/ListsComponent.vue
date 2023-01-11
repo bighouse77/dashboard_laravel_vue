@@ -34,29 +34,43 @@
               <div class="add">
                 <button @click="add"><i class="fa-solid fa-plus"></i></button>
               </div>
+
+              <CadastroPopupComponent @close="closePopup" v-if="showPopup"/>
+
         </div>
     </div>
 </template>
 
 <script>
+import CadastroPopupComponent from './Cadastro/CadastroPopupComponent.vue';
+
 export default {
-    name: 'ListsComponent',
+    name: "ListsComponent",
     props: {
-      data: Array,
-      description: String,
-      columns: {}
+        data: Array,
+        description: String,
+        columns: {},
+    },
+    data() {
+      return {
+        showPopup: false
+      }
     },
     methods: {
-      edit(){
-        return console.log('Editando');
-      },
-      erase(){
-        return console.log('Deletando');
-      },
-      add(){
-        return console.log('Inserindo');
-      }
-    }
+        edit() {
+            return console.log("Editando");
+        },
+        erase() {
+            return console.log("Deletando");
+        },
+        add() {
+          this.showPopup = true;
+        },
+        closePopup() {
+          this.showPopup = false;
+        }
+    },
+    components: { CadastroPopupComponent }
 }
 </script>
 
