@@ -35,8 +35,12 @@
                 <button @click="add"><i class="fa-solid fa-plus"></i></button>
               </div>
 
-              <CadastroPopupComponent @close="closePopup" v-if="showPopup"
-                :description=info[0]
+              <CadastroPopupComponent 
+                @close="closePopup" 
+                v-if="showPopup"
+                :columns=columns
+                :cadastrotitle=title
+                :dataIns=dataInsert
               />
 
         </div>
@@ -51,7 +55,9 @@ export default {
     props: {
         data: Array,
         info: Array,
+        title: String,
         description: String,
+        dataInsert: String,
         columns: {},
     },
     data() {

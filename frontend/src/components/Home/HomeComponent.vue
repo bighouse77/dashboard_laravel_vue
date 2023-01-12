@@ -60,17 +60,21 @@
                     <div class="col-12 col-md-6">
                         <ListsComponent 
                             :data="professores"
-                            :info="['Website']"
+                            :info="['Nome completo', 'E-mail', 'Website']"
+                            :title="'professores'"
                             :description="'Professores'" 
-                            :columns="['Nome', 'E-mail', 'Website']" 
+                            :columns="['Nome', 'E-mail', 'Website']"
+                            :dataInsert="'prof'" 
                         />
                     </div>
                     <div class="col-12 col-md-6">
                         <ListsComponent 
                             :data="conteudistas"
-                            :info="['Disciplina']"
+                            :info="['Nome completo', 'E-mail', 'Disciplina']"
+                            :title="'conteudistas'"
                             :description="'Conteudistas'" 
                             :columns="['Nome', 'E-mail', 'Disciplina']" 
+                            :dataInsert="'cont'"
                         />
                     </div>
                 </div>

@@ -22,4 +22,11 @@ class HomeController extends Controller
             'conteudistas' => $conteudistas,
         ]);
     }
+
+    public function insertData(Request $request)
+    {
+        $data = $request->all();
+        console.log($data);
+        return response()->json($data);
+    }
 }
