@@ -21,6 +21,7 @@ class CreateProfessorsTable extends Migration
             $table->softdeletes();
             $table->timestamps();
         });
+
     }
 
     /**

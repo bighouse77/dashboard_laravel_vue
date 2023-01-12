@@ -72,14 +72,14 @@ export default {
 
             if ('{{dataIns}}' == 'prof') {
                 
+                const dados = [
+                    nome = this.name,
+                    email = this.email,
+                    website = this.information
+                ];
+
                 try {
-                    axios.post('http://localhost:8000/api', {
-                        data:[
-                            nome = this.name,
-                            email = this.email,
-                            website = this.information
-                        ]
-                    })
+                    axios.post('http://localhost:8000/api', dados) 
                     .then(function (response) {
                         console.log(response);
                     })
@@ -92,14 +92,14 @@ export default {
 
             } else if('{{dataIns}}'== 'cont') {
                 
+               const dados = [
+                    nome = this.name,
+                    email = this.email,
+                    disciplina = this.information
+                ];
+
                 try {
-                    axios.post('http://localhost:8000/api', {
-                        data: [
-                            nome = this.name,
-                            email =this.email,
-                            disciplina = this.information
-                        ]
-                    })
+                    axios.post('http://localhost:8000/api', dados) 
                     .then(function (response) {
                         console.log(response);
                     })

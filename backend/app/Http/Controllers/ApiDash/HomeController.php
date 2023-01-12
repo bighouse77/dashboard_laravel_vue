@@ -25,8 +25,14 @@ class HomeController extends Controller
 
     public function insertData(Request $request)
     {
+
+        dd($request->all());
+
+        /*
         $data = $request->all();
         console.log($data);
         return response()->json($data);
+        */
+        
     }
 }
