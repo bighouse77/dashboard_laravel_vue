@@ -18,3 +18,5 @@ use App\Http\Controllers\ApiDash\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/', 'ApiDash\HomeController@insertData');

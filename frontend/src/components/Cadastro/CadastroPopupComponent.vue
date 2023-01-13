@@ -68,49 +68,20 @@ export default {
             this.$emit('close');
         },
 
-        async postData() {
+        postData() {
 
-            if ('{{dataIns}}' == 'prof') {
-                
-                const dados = [
-                    nome = this.name,
-                    email = this.email,
-                    website = this.information
-                ];
-
-                try {
-                    axios.post('http://localhost:8000/api', dados) 
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });              
-                } catch (error) {
+            try {
+                axios.post('http://localhost:8000/api')
+    
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
                     console.log(error);
-                }
-
-            } else if('{{dataIns}}'== 'cont') {
-                
-               const dados = [
-                    nome = this.name,
-                    email = this.email,
-                    disciplina = this.information
-                ];
-
-                try {
-                    axios.post('http://localhost:8000/api', dados) 
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });              
-                } catch (error) {
-                    console.log(error);
-                }
-
-            }                          
+                });              
+            } catch (error) {
+                console.log(error);
+            }  
         }
     },
     props: {
@@ -143,7 +114,8 @@ export default {
     background-color: white;
     padding: 32px;
     width: 800px;
-    box-shadow: 3px 2px 2px black; 
+    box-shadow: 3px 2px 2px black;
+    border-radius: 20px; 
 }
 
 .popup-inner h3 {

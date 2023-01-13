@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public function index() 
     {   
+        // READ (Get)
         $professores = Professor::all();
         
         $conteudistas = Conteudista::all();
@@ -23,16 +24,32 @@ class HomeController extends Controller
         ]);
     }
 
-    public function insertData(Request $request)
+    public function insertData()
     {
 
-        dd($request->all());
-
-        /*
-        $data = $request->all();
-        console.log($data);
-        return response()->json($data);
-        */
+        // CREATE
         
+        $teste = Professor::create([
+            'name' => 'vitor Create',
+            'email' => 'teste2',
+            'website' => 'teste2.com.br'
+        ]);
+        
+    
+
+        // DELETE
+        /*
+        $teste = Professor::where('email', '=', 'teste')->delete();
+        */
+
+
+        // UPDATE
+        /*
+        $teste = Professor::find(19);
+        $teste->name = 'Teste alterado';
+        $teste->email = 'email alterado';
+        $teste->website = 'alterado';
+        $teste->save();
+        */
     }
 }
