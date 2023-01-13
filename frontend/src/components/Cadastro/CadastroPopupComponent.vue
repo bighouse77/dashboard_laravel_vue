@@ -71,7 +71,7 @@ export default {
         postData() {
 
             try {
-                axios.post('http://localhost:8000/api')
+                axios.post('http://localhost:8000/api/create')
     
                 .then(function (response) {
                     console.log(response);
@@ -132,6 +132,5 @@ export default {
     display: flex;
     justify-content: right;
 }
-
 
 </style>
