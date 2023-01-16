@@ -11,6 +11,11 @@ use DB;
 
 class HomeController extends Controller
 {
+
+    public function __construct(Professor $professor) {
+        $this->Professor = $professor;
+    }
+
     public function index() 
     {   
         // READ (Get)
@@ -24,24 +29,28 @@ class HomeController extends Controller
         ]);
     }
 
-    public function insertData()
-    {
+    public function insertData(Array $data)
+    {  
+
+        $professor->name = $data->name;
+        $professor->email = $data->email;
+        $professor->website = $data->information;
+        $professor->save();
 
         // CREATE
-        
+        /*
         $teste = Professor::create([
             'name' => 'vitor Create',
             'email' => 'teste2',
             'website' => 'teste2.com.br'
         ]);
-        
+        */
     
 
         // DELETE
         /*
         $teste = Professor::where('email', '=', 'teste')->delete();
         */
-
 
         // UPDATE
         /*

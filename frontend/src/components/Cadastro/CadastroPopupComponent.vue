@@ -8,35 +8,34 @@
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">{{columns[0]}}</label>
                       <input 
-                        v-model="name"
+                        v-model="form.name"
                         type="text" 
                         class="form-control" 
                         id="name" 
                         aria-describedby="emailHelp" 
                         placeholder="Digite seu nome completo..."
                     >
-                    {{ name }}
                     </div>
-
-                    
 
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">{{ columns[1] }}</label>
                       <input
-                        v-model="email"
+                        v-model="form.email"
                         type="email" 
                         class="form-control" 
                         id="email" 
-                        placeholder="exemplo@exemplo.com">
+                        placeholder="exemplo@exemplo.com"
+                    >
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputText" class="form-label">{{ columns[2] }}</label>
                         <input 
-                            v-model="information"
+                            v-model="form.information"
                             type="text" 
                             class="form-control" 
-                            id="website">
+                            id="website"
+                        >
                       </div>
 
                     <div class="btn-form">
@@ -44,7 +43,8 @@
                         <button @click="postData" type="submit" class="btn btn-success">Cadastrar</button>
                     </div>
 
-                    
+                    {{form}}
+
                   </form>
             </div>      
         </div>
@@ -58,9 +58,11 @@ export default {
     name: 'CadastroPopupComponent',
     data() {
         return {
-            name: '', 
-            email: '',
-            information: ''
+            form: {
+                name: '',
+                email: '',
+                information: ''
+            }
         }     
     },
     methods: {
@@ -71,14 +73,15 @@ export default {
         postData() {
 
             try {
-                axios.post('http://localhost:8000/api/create')
+                axios.post('http://localhost:8000/api/create', this.form)
     
                 .then(function (response) {
                     console.log(response);
                 })
                 .catch(function (error) {
                     console.log(error);
-                });              
+                });   
+            
             } catch (error) {
                 console.log(error);
             }  

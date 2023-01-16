@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/', 'ApiDash\HomeController@insertData');
+Route::post('/create', 'ApiDash\HomeController@insertData');
