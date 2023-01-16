@@ -32,10 +32,6 @@ class HomeController extends Controller
     public function insertData(Request $request)
     {  
 
-        console.log(request()->all());
-
-        return response()->noContent(200);
-
         /*
         $professor->name = $request->name;
         $professor->email = $request->email;
