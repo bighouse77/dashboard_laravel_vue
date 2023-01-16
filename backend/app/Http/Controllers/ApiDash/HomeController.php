@@ -29,13 +29,19 @@ class HomeController extends Controller
         ]);
     }
 
-    public function insertData(Array $data)
+    public function insertData(Request $request)
     {  
 
-        $professor->name = $data->name;
-        $professor->email = $data->email;
-        $professor->website = $data->information;
+        console.log(request()->all());
+
+        return response()->noContent(200);
+
+        /*
+        $professor->name = $request->name;
+        $professor->email = $request->email;
+        $professor->website = $request->information;
         $professor->save();
+        */
 
         // CREATE
         /*
