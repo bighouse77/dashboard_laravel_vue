@@ -6,12 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Models\Professor;
 use App\Models\Models\Conteudista;
 use Illuminate\Http\Request;
-use DB;
-
 
 class HomeController extends Controller
 {
-
     /**
      * @var Professor
      */
@@ -37,8 +34,11 @@ class HomeController extends Controller
     public function insertData(Request $request)
     {
 
-        //dd($request);
+        $professor = new Professor;
 
+        professor::create([$request->all()]);
+
+        /*
         $professor = new Professor;
 
         if (!empty($request->name)) {
@@ -52,7 +52,7 @@ class HomeController extends Controller
         }
 
         $professor->save();
-
+        */
 
         // CREATE
         /*
