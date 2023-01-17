@@ -25,7 +25,7 @@
                         class="form-control" 
                         id="email" 
                         placeholder="exemplo@exemplo.com"
-                    >
+                      >
                     </div>
 
                     <div class="mb-3">
@@ -109,7 +109,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Inter';
+    font-family: 'Inter',serif;
     color: #293746;    
 }
 

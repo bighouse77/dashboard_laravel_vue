@@ -9,6 +9,18 @@ class Professor extends Model
 {
     use HasFactory;
 
+    /**
+     * @var mixed
+     */
+    public $name;
+    /**
+     * @var mixed
+     */
+    public $email;
+    /**
+     * @var mixed
+     */
+    public $website;
     protected $fillable = [
         'name',
         'email',

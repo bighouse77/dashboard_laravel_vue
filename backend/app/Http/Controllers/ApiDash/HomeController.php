@@ -12,15 +12,20 @@ use DB;
 class HomeController extends Controller
 {
 
+    /**
+     * @var Professor
+     */
+    protected $Professor;
+
     public function __construct(Professor $professor) {
         $this->Professor = $professor;
     }
 
-    public function index() 
-    {   
+    public function index(): \Illuminate\Http\JsonResponse
+    {
         // READ (Get)
         $professores = Professor::all();
-        
+
         $conteudistas = Conteudista::all();
 
         return response()->json([
@@ -30,14 +35,24 @@ class HomeController extends Controller
     }
 
     public function insertData(Request $request)
-    {  
+    {
 
-        /*
-        $professor->name = $request->name;
-        $professor->email = $request->email;
-        $professor->website = $request->information;
+        //dd($request);
+
+        $professor = new Professor;
+
+        if (!empty($request->name)) {
+            $professor->name = $request->name;
+        }
+        if (!empty($request->email)) {
+            $professor->email = $request->email;
+        }
+        if (!empty($request->information)) {
+            $professor->website = $request->information;
+        }
+
         $professor->save();
-        */
+
 
         // CREATE
         /*
@@ -47,7 +62,7 @@ class HomeController extends Controller
             'website' => 'teste2.com.br'
         ]);
         */
-    
+
 
         // DELETE
         /*
