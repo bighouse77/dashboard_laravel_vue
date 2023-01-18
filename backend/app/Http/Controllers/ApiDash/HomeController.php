@@ -38,6 +38,7 @@ class HomeController extends Controller
 
         professor::create([$request->all()]);
 
+
         /*
         $professor = new Professor;
 
@@ -55,13 +56,13 @@ class HomeController extends Controller
         */
 
         // CREATE
-        /*
+
         $teste = Professor::create([
-            'name' => 'vitor Create',
+            'name' => 'cleber Create',
             'email' => 'teste2',
-            'website' => 'teste2.com.br'
+            'website' => 'te2.com.br'
         ]);
-        */
+
 
 
         // DELETE

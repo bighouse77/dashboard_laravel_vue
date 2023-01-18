@@ -1,7 +1,7 @@
 <template>
     <div class="popup">
         <div class="popup-inner">
-            <h3>Cadastro de {{ cadastrotitle }}</h3>
+            <h1>Cadastro de {{ cadastrotitle }}</h1>
 
             <div class="form" method="post">
                 <form>
@@ -115,19 +115,30 @@ export default {
 
 .popup-inner {
     background-color: white;
-    padding: 32px;
+    padding: 60px;
     width: 800px;
     box-shadow: 3px 2px 2px black;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
-.popup-inner h3 {
+.popup-inner h1 {
     font-weight: bold;
+    text-align: center;
 }
 
 .form {
     margin-top: 50px;
     font-weight: bold;
+}
+
+.form input {
+  height: 47px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.form label {
+  margin-left: 10px;
 }
 
 .btn-form {
