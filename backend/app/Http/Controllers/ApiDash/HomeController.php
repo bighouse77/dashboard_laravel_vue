@@ -33,9 +33,7 @@ class HomeController extends Controller
 
     public function insertData(Request $request)
     {
-
-        //dd($request);
-
+        // C R E A T E
         $content = $request->getContent();
 
         $teste = Professor::create([
@@ -44,28 +42,6 @@ class HomeController extends Controller
             'website' => $request->information
         ]);
 
-        /*
-        $professor = new Professor;
-
-        professor::create([$request->all()]);
-        */
-
-        /*
-        $professor = new Professor;
-
-        if (!empty($request->name)) {
-            $professor->name = $request->name;
-        }
-        if (!empty($request->email)) {
-            $professor->email = $request->email;
-        }
-        if (!empty($request->information)) {
-            $professor->website = $request->information;
-        }
-
-        $professor->save();
-        */
-
         // CREATE
         /*
         $teste = Professor::create([
@@ -73,12 +49,6 @@ class HomeController extends Controller
             'email' => 'teste2',
             'website' => 'te2.com.br'
         ]);
-    */
-
-
-        // DELETE
-        /*
-        $teste = Professor::where('email', '=', 'teste')->delete();
         */
 
         // UPDATE
@@ -89,5 +59,13 @@ class HomeController extends Controller
         $teste->website = 'alterado';
         $teste->save();
         */
+    }
+
+    public function  deleteData()
+    {
+        // D E L E T E
+
+        $teste = Professor::where('email', '=', 'mauricio.araras@hotmail.com')->delete();
+
     }
 }

@@ -29,7 +29,7 @@
                       {{ description == 'Professores' ? user.website : user.disciplina}}
                       <div class="actions">
                         <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button @click="erase"><i class="fa-solid fa-trash"></i></button>
+                        <button @click="deleteData"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
                   </tr>        
@@ -55,6 +55,7 @@
 
 <script>
 import CadastroPopupComponent from './Cadastro/CadastroPopupComponent.vue';
+import axios from 'axios';
 
 export default {
     name: "ListsComponent",
@@ -73,12 +74,6 @@ export default {
       }
     },
     methods: {
-        edit() {
-            return console.log("Editando");
-        },
-        erase() {
-            return console.log("Deletando");
-        },
         add() {
           this.showPopup = true;
         },
@@ -87,7 +82,27 @@ export default {
         },
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
-        }
+        },
+        edit() {
+          return console.log("Editando");
+        },
+        deleteData() {
+
+          try {
+            axios.delete('http://localhost:8000/api/delete')
+
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+
+          } catch (error) {
+            console.log(error);
+          }
+
+        },
     },
     components: { CadastroPopupComponent }
 }
