@@ -28,9 +28,4 @@ class Professor extends Model
         'website'
     ];
 
-    public static function create(array $array): \Illuminate\Http\JsonResponse
-    {
-        return response()->json($array);
-    }
-
 }

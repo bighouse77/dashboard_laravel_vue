@@ -34,10 +34,21 @@ class HomeController extends Controller
     public function insertData(Request $request)
     {
 
+        //dd($request);
+
+        $content = $request->getContent();
+
+        $teste = Professor::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'website' => $request->information
+        ]);
+
+        /*
         $professor = new Professor;
 
         professor::create([$request->all()]);
-
+        */
 
         /*
         $professor = new Professor;
@@ -56,13 +67,13 @@ class HomeController extends Controller
         */
 
         // CREATE
-
+        /*
         $teste = Professor::create([
             'name' => 'cleber Create',
             'email' => 'teste2',
             'website' => 'te2.com.br'
         ]);
-
+    */
 
 
         // DELETE
