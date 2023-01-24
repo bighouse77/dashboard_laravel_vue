@@ -80,11 +80,17 @@ export default {
                 })
                 .catch(function (error) {
                     console.log(error);
-                });   
+                });
+
+                this.$emit('close');
+
+                this.$emit('cadastroOk');
             
             } catch (error) {
                 console.log(error);
-            }  
+            }
+
+            this.$emit('close');
         }
     },
     props: {

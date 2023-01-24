@@ -3,6 +3,8 @@
         <template v-slot:slot-pages>
             <div class="content-pages">
 
+                <slot></slot>
+
                 <div v-if="errorOn" class="alert alert-danger alert" role="alert">
                     Erro ao consumir API
                 </div>
@@ -101,7 +103,7 @@ export default {
         return{
             professores: [],
             conteudistas: [],
-            errorOn: false
+            errorOn: false,
         }  
     },
     methods: {

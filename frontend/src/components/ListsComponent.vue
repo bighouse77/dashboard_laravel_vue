@@ -1,4 +1,9 @@
 <template>
+
+    <div v-if="cadastroRealizadoOn" class="alert alert-success" role="alert">
+      Cadastro realizado com sucesso!
+    </div>
+
     <div class="lists">
         <div class="top">
             <p>
@@ -36,7 +41,8 @@
               </div>
 
               <CadastroPopupComponent 
-                @close="closePopup" 
+                @close="closePopup"
+                @cadastroOk="showCadastroOk"
                 v-if="showPopup"
                 :columns=columns
                 :cadastrotitle=title
@@ -62,7 +68,8 @@ export default {
     },
     data() {
       return {
-        showPopup: false
+        showPopup: false,
+        cadastroRealizadoOn: false,
       }
     },
     methods: {
@@ -77,6 +84,9 @@ export default {
         },
         closePopup() {
           this.showPopup = false;
+        },
+        showCadastroOk(){
+          this.cadastroRealizadoOn = true;
         }
     },
     components: { CadastroPopupComponent }
