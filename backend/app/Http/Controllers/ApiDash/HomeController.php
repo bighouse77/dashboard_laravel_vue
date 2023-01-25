@@ -52,11 +52,14 @@ class HomeController extends Controller
         */
     }
 
-    public function destroy($del)
+    public function destroy($dataDel)
     {
         // D E L E T E
-        dd($del);
-        //$teste = Professor::where('email', '=', $request->email)->delete();
+        //dd($del);
+        $content = $dataDel->getContent();
+
+        dd($content);
+        //$teste = Professor::where('email', '=', $content->email)->delete();
 
     }
 }
