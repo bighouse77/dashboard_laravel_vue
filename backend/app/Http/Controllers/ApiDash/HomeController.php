@@ -42,15 +42,6 @@ class HomeController extends Controller
             'website' => $request->information
         ]);
 
-        // CREATE
-        /*
-        $teste = Professor::create([
-            'name' => 'cleber Create',
-            'email' => 'teste2',
-            'website' => 'te2.com.br'
-        ]);
-        */
-
         // UPDATE
         /*
         $teste = Professor::find(19);
@@ -61,11 +52,11 @@ class HomeController extends Controller
         */
     }
 
-    public function  deleteData()
+    public function destroy($del)
     {
         // D E L E T E
-
-        $teste = Professor::where('email', '=', 'mauricio.araras@hotmail.com')->delete();
+        dd($del);
+        //$teste = Professor::where('email', '=', $request->email)->delete();
 
     }
 }

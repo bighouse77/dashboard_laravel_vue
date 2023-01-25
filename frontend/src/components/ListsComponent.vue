@@ -70,7 +70,7 @@ export default {
     data() {
       return {
         showPopup: false,
-        cadastroRealizadoOn: false,
+        cadastroRealizadoOn: false
       }
     },
     methods: {
@@ -89,7 +89,7 @@ export default {
         deleteData() {
 
           try {
-            axios.delete('http://localhost:8000/api/delete')
+            axios.delete('http://localhost:8000/api/delete', this.data)
 
                 .then(function (response) {
                   console.log(response);
