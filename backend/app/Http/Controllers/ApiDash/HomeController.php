@@ -52,14 +52,27 @@ class HomeController extends Controller
         */
     }
 
-    public function destroy($dataDel)
+    public function deleteData($id)
     {
-        // D E L E T E
-        //dd($del);
-        $content = $dataDel->getContent();
+        //dd($id);
 
-        dd($content);
-        //$teste = Professor::where('email', '=', $content->email)->delete();
+        // D E L E T E
+        /*
+        $data = Professor::find($id);
+        Professor::destroy($data);
+        */
+
+        return [
+            'msg' => 'professor deletado',
+            'status' => 200,
+            'content' => $id
+        ];
+
+        //$response = $this->Professor->delete($email);
+
+        //$content = $request->getContent();
+
+       //$teste = Professor::where('email', '=', $request->email)->delete();
 
     }
 }

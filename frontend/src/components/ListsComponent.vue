@@ -87,13 +87,14 @@ export default {
         edit() {
           return console.log("Editando");
         },
-        deleteData() {
+        async deleteData() {
 
           try {
-            axios.delete('http://localhost:8000/api/delete', this.dataDel)
+            await axios.delete('http://localhost:8000/api/delete/' + this.dataDel.id)
 
                 .then(function (response) {
                   console.log(response);
+                  window.alert("Professor deletado");
                 })
                 .catch(function (error) {
                   console.log(error);
