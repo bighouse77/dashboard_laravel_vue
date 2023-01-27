@@ -71,7 +71,8 @@ export default {
       return {
         showPopup: false,
         cadastroRealizadoOn: false,
-        dataDel: this.data
+        dataDel: this.data,
+        teste: "alo"
       }
     },
     methods: {
@@ -90,7 +91,7 @@ export default {
         async deleteData() {
 
           try {
-            await axios.delete('http://localhost:8000/api/delete/' + this.dataDel.id)
+            await axios.delete('http://localhost:8000/api/delete/' + this.data.id)
 
                 .then(function (response) {
                   console.log(response);
