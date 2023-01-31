@@ -57,15 +57,14 @@ class HomeController extends Controller
         //dd($id);
 
         // D E L E T E
-        /*
+
         $data = Professor::find($id);
-        Professor::destroy($data);
-        */
+        $data->delete();
 
         return [
             'msg' => 'professor deletado',
             'status' => 200,
-            'content' => $id
+            'content' => $data
         ];
 
         //$response = $this->Professor->delete($email);

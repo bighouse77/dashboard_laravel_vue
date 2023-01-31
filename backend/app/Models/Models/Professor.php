@@ -23,6 +23,7 @@ class Professor extends Model
      */
     public $website;
     protected $fillable = [
+        'id',
         'name',
         'email',
         'website'

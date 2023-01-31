@@ -55,7 +55,7 @@
 
 <script>
 import CadastroPopupComponent from './Cadastro/CadastroPopupComponent.vue';
-import axios from 'axios';
+import {forEach} from "core-js/stable/dom-collections";
 
 export default {
     name: "ListsComponent",
@@ -72,7 +72,6 @@ export default {
         showPopup: false,
         cadastroRealizadoOn: false,
         dataDel: this.data,
-        teste: "alo"
       }
     },
     methods: {
@@ -88,23 +87,16 @@ export default {
         edit() {
           return console.log("Editando");
         },
-        async deleteData() {
+        deleteData() {
+          /*
+          let $x;
+          forEach($x in this.data)
+          {
 
-          try {
-            await axios.delete('http://localhost:8000/api/delete/' + this.data.id)
-
-                .then(function (response) {
-                  console.log(response);
-                  window.alert("Professor deletado");
-                })
-                .catch(function (error) {
-                  console.log(error);
-                });
-
-          } catch (error) {
-            console.log(error);
           }
-
+          
+           */
+          this.$emit('delete', this.data[0].id);
         },
     },
     components: { CadastroPopupComponent }

@@ -66,7 +66,8 @@
                             :title="'professores'"
                             :description="'Professores'" 
                             :columns="['Nome', 'E-mail', 'Website']"
-                            :dataInsert="'prof'" 
+                            :dataInsert="'prof'"
+                            @delete="deleteData"
                         />
                     </div>
                     <div class="col-12 col-md-6">
@@ -124,6 +125,26 @@ export default {
                 this.errorOn = true;
             }
         },
+        async deleteData($id) {
+
+          console.log($id);
+
+          try {
+            await axios.delete('http://localhost:8000/api/delete/' + $id)
+
+                .then(function (response) {
+                  console.log(response);
+                  window.alert("Professor deletado");
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+
+          } catch (error) {
+            console.log(error);
+          }
+
+        }
 
     },
     components: {
