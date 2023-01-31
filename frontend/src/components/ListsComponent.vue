@@ -55,7 +55,6 @@
 
 <script>
 import CadastroPopupComponent from './Cadastro/CadastroPopupComponent.vue';
-import {forEach} from "core-js/stable/dom-collections";
 
 export default {
     name: "ListsComponent",
@@ -94,7 +93,7 @@ export default {
           {
 
           }
-          
+
            */
           this.$emit('delete', this.data[0].id);
         },
