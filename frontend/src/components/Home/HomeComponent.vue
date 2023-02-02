@@ -59,7 +59,7 @@
 
             <div class="mt-5">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-12">
                         <ListsComponent 
                             :data="professores"
                             :info="['Nome completo', 'E-mail', 'Website']"
@@ -70,6 +70,7 @@
                             @delete="deleteData"
                         />
                     </div>
+                    <!--
                     <div class="col-12 col-md-6">
                         <ListsComponent 
                             :data="conteudistas"
@@ -80,6 +81,7 @@
                             :dataInsert="'cont'"
                         />
                     </div>
+                    -->
                 </div>
             </div>
 

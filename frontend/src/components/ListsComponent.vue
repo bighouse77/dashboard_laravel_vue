@@ -29,7 +29,7 @@
                       {{ description == 'Professores' ? user.website : user.disciplina}}
                       <div class="actions">
                         <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button @click="deleteData"><i class="fa-solid fa-trash"></i></button>
+                        <button @click="deleteData(user.id)"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
                   </tr>        
@@ -86,16 +86,9 @@ export default {
         edit() {
           return console.log("Editando");
         },
-        deleteData() {
-          /*
-          let $x;
-          forEach($x in this.data)
-          {
+        deleteData(id) {
 
-          }
-
-           */
-          this.$emit('delete', this.data[0].id);
+          this.$emit('delete', id);
         },
     },
     components: { CadastroPopupComponent }

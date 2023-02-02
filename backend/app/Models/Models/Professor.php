@@ -13,6 +13,10 @@ class Professor extends Model
     /**
      * @var mixed
      */
+    public $id;
+    /**
+     * @var mixed
+     */
     public $name;
     /**
      * @var mixed
