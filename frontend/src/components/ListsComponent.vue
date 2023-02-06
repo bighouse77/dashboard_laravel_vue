@@ -87,7 +87,6 @@ export default {
           return console.log("Editando");
         },
         deleteData(id) {
-
           this.$emit('delete', id);
         },
     },

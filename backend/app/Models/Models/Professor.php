@@ -13,10 +13,6 @@ class Professor extends Model
     /**
      * @var mixed
      */
-    public $id;
-    /**
-     * @var mixed
-     */
     public $name;
     /**
      * @var mixed
@@ -27,7 +23,6 @@ class Professor extends Model
      */
     public $website;
     protected $fillable = [
-        'id',
         'name',
         'email',
         'website'

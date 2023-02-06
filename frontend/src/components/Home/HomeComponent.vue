@@ -70,6 +70,7 @@
                             @delete="deleteData"
                         />
                     </div>
+
                     <!--
                     <div class="col-12 col-md-6">
                         <ListsComponent 
@@ -82,6 +83,7 @@
                         />
                     </div>
                     -->
+
                 </div>
             </div>
 
@@ -116,7 +118,7 @@ export default {
 
                 let response = await axios.get('http://localhost:8000/api') 
 
-                if (response.status == 200) {
+                if (response.status === 200) {
                     this.professores = response.data.professores;
                     this.conteudistas = response.data.conteudistas;
                 } else {

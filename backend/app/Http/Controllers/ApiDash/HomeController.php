@@ -54,10 +54,7 @@ class HomeController extends Controller
 
     public function deleteData($id)
     {
-        //dd($id);
-
         // D E L E T E
-
         $data = Professor::find($id);
         $data->delete();
 
@@ -66,12 +63,5 @@ class HomeController extends Controller
             'status' => 200,
             'content' => $data
         ];
-
-        //$response = $this->Professor->delete($email);
-
-        //$content = $request->getContent();
-
-       //$teste = Professor::where('email', '=', $request->email)->delete();
-
     }
 }
