@@ -42,14 +42,10 @@ class HomeController extends Controller
             'website' => $request->information
         ]);
 
-        // UPDATE
-        /*
-        $teste = Professor::find(19);
-        $teste->name = 'Teste alterado';
-        $teste->email = 'email alterado';
-        $teste->website = 'alterado';
-        $teste->save();
-        */
+        return [
+            'msg' => 'professor deletado',
+            'status' => 200,
+        ];
     }
 
     public function deleteData($id)
@@ -65,10 +61,22 @@ class HomeController extends Controller
         ];
     }
 
-    public function putData($id) {
+    public function putData(Request $request)
+    {
+        // U P D A T E
+        $content = $request->getContent();
+        
+        /*
+        $teste = Professor::find(19);
+        $teste->name = 'Teste alterado';
+        $teste->email = 'email alterado';
+        $teste->website = 'alterado';
+        $teste->save();
+        */
+
         return [
             'status' => 200,
-            'content' => $id
+            'content' => $request
         ];
     }
 }

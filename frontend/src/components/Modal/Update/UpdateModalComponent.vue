@@ -73,7 +73,7 @@ export default {
         postData() {
 
             try {
-                axios.put('http://localhost:8000/api/put', this.form)
+                axios.put('http://localhost:8000/api/put', 'teste')
     
                 .then(function (response) {
                     console.log(response);
@@ -85,6 +85,8 @@ export default {
                 this.$emit('close');
 
                 this.$emit('cadastroOk');
+
+                console.log(this.dataDel);
             
             } catch (error) {
                 console.log(error);
