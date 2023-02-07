@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/', 'ApiDash\HomeController@index');
 Route::post('/create', 'ApiDash\HomeController@insertData');
 Route::delete('/delete/{id}', 'ApiDash\HomeController@deleteData');
+Route::put('/put/{id}', 'App\Http\Controllers\ApiDash\HomeController@putData');

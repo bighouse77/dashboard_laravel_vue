@@ -28,7 +28,7 @@
                     <td class="btn-style">
                       {{ description == 'Professores' ? user.website : user.disciplina}}
                       <div class="actions">
-                        <button @click="edit"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button @click="edit(user.id)"><i class="fa-solid fa-pen-to-square"></i></button>
                         <button @click="deleteData(user.id)"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
@@ -40,7 +40,14 @@
                 <button @click="add"><i class="fa-solid fa-plus"></i></button>
               </div>
 
-              <CadastroPopupComponent 
+              <UpdateModalComponent
+                @close="closeUpdate"
+                v-if="showUpdate"
+                :columns="columns"
+                :dataDel="dataDel"
+              />
+
+              <CadastroModalComponent
                 @close="closePopup"
                 @cadastroOk="showCadastroOk"
                 v-if="showPopup"
@@ -54,7 +61,9 @@
 </template>
 
 <script>
-import CadastroPopupComponent from './Cadastro/CadastroPopupComponent.vue';
+
+import CadastroModalComponent from "@/components/Modal/Cadastro/CadastroModalComponent.vue";
+import UpdateModalComponent from "@/components/Modal/Update/UpdateModalComponent.vue";
 
 export default {
     name: "ListsComponent",
@@ -69,8 +78,9 @@ export default {
     data() {
       return {
         showPopup: false,
+        showUpdate: false,
         cadastroRealizadoOn: false,
-        dataDel: this.data,
+        dataDel: ''
       }
     },
     methods: {
@@ -80,17 +90,22 @@ export default {
         closePopup() {
           this.showPopup = false;
         },
+        closeUpdate() {
+          this.showUpdate = false;
+        },
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
         },
-        edit() {
-          return console.log("Editando");
+        edit(id) {
+          this.showUpdate = true;
+          this.dataDel = id;
+          console.log(this.dataDel);
         },
         deleteData(id) {
           this.$emit('delete', id);
         },
     },
-    components: { CadastroPopupComponent }
+    components: {UpdateModalComponent, CadastroModalComponent}
 }
 </script>
 

@@ -64,4 +64,11 @@ class HomeController extends Controller
             'content' => $data
         ];
     }
+
+    public function putData($id) {
+        return [
+            'status' => 200,
+            'content' => $id
+        ];
+    }
 }

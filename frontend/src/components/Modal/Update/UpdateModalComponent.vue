@@ -1,7 +1,7 @@
 <template>
     <div class="popup">
         <div class="popup-inner">
-            <h1>Cadastro de {{ cadastrotitle }}</h1>
+            <h1>Atualizar dados</h1>
 
             <div class="form" method="post">
                 <form>
@@ -43,9 +43,9 @@
                         <button @click="postData" type="submit" class="btn btn-success">Cadastrar</button>
                     </div>
 
-                    {{form}}
+                </form>
 
-                  </form>
+                {{ dataDel }}
             </div>      
         </div>
     </div>
@@ -55,7 +55,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'CadastroPopupComponent',
+    name: 'UpdateModalComponent',
     data() {
         return {
             form: {
@@ -73,7 +73,7 @@ export default {
         postData() {
 
             try {
-                axios.post('http://localhost:8000/api/create', this.form)
+                axios.put('http://localhost:8000/api/put', this.form)
     
                 .then(function (response) {
                     console.log(response);
@@ -94,10 +94,8 @@ export default {
         }
     },
     props: {
-        cadastrotitle: String,
-        infoquest: Array,
         columns: Array,
-        dataIns: String
+        dataDel: String
     }
 }
 </script>
