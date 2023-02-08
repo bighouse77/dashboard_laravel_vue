@@ -31,7 +31,7 @@ class HomeController extends Controller
         ]);
     }
 
-    public function insertData(Request $request)
+    public function insertData(Request $request): array
     {
         // C R E A T E
         $content = $request->getContent();
@@ -48,7 +48,7 @@ class HomeController extends Controller
         ];
     }
 
-    public function deleteData($id)
+    public function deleteData($id): array
     {
         // D E L E T E
         $data = Professor::find($id);
@@ -61,22 +61,21 @@ class HomeController extends Controller
         ];
     }
 
-    public function putData(Request $request)
+    public function putData($id, Request $request): array
     {
         // U P D A T E
-        $content = $request->getContent();
-        
-        /*
-        $teste = Professor::find(19);
-        $teste->name = 'Teste alterado';
-        $teste->email = 'email alterado';
-        $teste->website = 'alterado';
-        $teste->save();
-        */
+        $att = Professor::where('id',$id)->update(
+          [
+              'name' => $request->name,
+              'email' => $request->email,
+              'website' => $request->information
+          ]
+        );
 
         return [
             'status' => 200,
-            'content' => $request
+            'content' => $request,
+            'id' => $att
         ];
     }
 }

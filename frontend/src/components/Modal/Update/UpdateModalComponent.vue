@@ -40,11 +40,11 @@
 
                     <div class="btn-form">
                         <button @click="popup" class="btn btn-danger">Cancelar</button>&nbsp;&nbsp;
-                        <button @click="postData" type="submit" class="btn btn-success">Cadastrar</button>
+                        <button @click="postData" type="submit" class="btn btn-success">Atualizar</button>
                     </div>
 
                 </form>
-
+                {{ form }}
                 {{ dataDel }}
             </div>      
         </div>
@@ -70,12 +70,11 @@ export default {
             this.$emit('close');
         },
 
-        postData() {
+        async postData() {
 
             try {
-                axios.put('http://localhost:8000/api/put', 'teste')
-    
-                .then(function (response) {
+                await axios.put('http://localhost:8000/api/put/' + this.dataDel, this.form)
+                  .then(function (response) {
                     console.log(response);
                 })
                 .catch(function (error) {
@@ -84,7 +83,7 @@ export default {
 
                 this.$emit('close');
 
-                this.$emit('cadastroOk');
+                window.alert("Professor atualizado");
 
                 console.log(this.dataDel);
             
