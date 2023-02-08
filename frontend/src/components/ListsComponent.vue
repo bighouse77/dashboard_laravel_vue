@@ -28,7 +28,13 @@
                     <td class="btn-style">
                       {{ description == 'Professores' ? user.website : user.disciplina}}
                       <div class="actions">
-                        <button @click="edit(user.id)"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button @click="edit(
+                            user.id,
+                            user.name,
+                            user.email,
+                            user.information)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
                         <button @click="deleteData(user.id)"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
@@ -45,6 +51,7 @@
                 v-if="showUpdate"
                 :columns="columns"
                 :dataDel="dataDel"
+                :dataShow="dataShow"
               />
 
               <CadastroModalComponent
@@ -55,6 +62,8 @@
                 :cadastrotitle=title
                 :dataIns=dataInsert
               />
+
+              {{data}}
 
         </div>
     </div>
@@ -80,7 +89,8 @@ export default {
         showPopup: false,
         showUpdate: false,
         cadastroRealizadoOn: false,
-        dataDel: ''
+        dataDel: '',
+        dataShow: [],
       }
     },
     methods: {
@@ -96,10 +106,14 @@ export default {
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
         },
-        edit(id) {
+        edit(id, name, email, information) {
           this.showUpdate = true;
           this.dataDel = id;
-          console.log(this.dataDel);
+          this.dataShow = [{
+            "name" : name,
+            "email" : email,
+            "website" : information
+          }];
         },
         deleteData(id) {
           this.$emit('delete', id);
@@ -120,7 +134,7 @@ export default {
 
 .top p {
   font-size: 23px;
-  font-family: 'Inter';
+  font-family: 'Inter',serif;
 }
 
 .btn-style {

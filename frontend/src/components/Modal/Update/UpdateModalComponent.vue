@@ -7,13 +7,11 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">{{columns[0]}}</label>
-                      <input 
+                      <input
                         v-model="form.name"
                         type="text" 
                         class="form-control" 
-                        id="name" 
-                        aria-describedby="emailHelp" 
-                        placeholder="Digite seu nome completo..."
+                        id="name"
                     >
                     </div>
 
@@ -44,8 +42,9 @@
                     </div>
 
                 </form>
-                {{ form }}
+                {{ formTest }}
                 {{ dataDel }}
+
             </div>      
         </div>
     </div>
@@ -58,11 +57,13 @@ export default {
     name: 'UpdateModalComponent',
     data() {
         return {
+            formTest: this.dataShow,
             form: {
                 name: '',
                 email: '',
                 information: ''
-            }
+            },
+
         }     
     },
     methods: {
@@ -95,6 +96,8 @@ export default {
         }
     },
     props: {
+        data: Array,
+        dataShow: Array,
         columns: Array,
         dataDel: String
     }
