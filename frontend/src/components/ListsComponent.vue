@@ -32,7 +32,7 @@
                             user.id,
                             user.name,
                             user.email,
-                            user.information)">
+                            user.website)">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                         <button @click="deleteData(user.id)"><i class="fa-solid fa-trash"></i></button>
@@ -62,8 +62,6 @@
                 :cadastrotitle=title
                 :dataIns=dataInsert
               />
-
-              {{data}}
 
         </div>
     </div>
@@ -106,13 +104,13 @@ export default {
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
         },
-        edit(id, name, email, information) {
+        edit(id, name, email, info) {
           this.showUpdate = true;
           this.dataDel = id;
           this.dataShow = [{
             "name" : name,
             "email" : email,
-            "website" : information
+            "website" : info
           }];
         },
         deleteData(id) {

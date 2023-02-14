@@ -139,6 +139,7 @@ export default {
   height: 47px;
   border-radius: 20px;
   padding: 20px;
+  font-weight: bold;
 }
 
 .form label {

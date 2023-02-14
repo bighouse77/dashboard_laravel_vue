@@ -42,8 +42,6 @@
                     </div>
 
                 </form>
-                {{ formTest }}
-                {{ dataDel }}
 
             </div>      
         </div>
@@ -57,13 +55,18 @@ export default {
     name: 'UpdateModalComponent',
     data() {
         return {
-            formTest: this.dataShow,
-            form: {
-                name: '',
-                email: '',
-                information: ''
-            },
-
+          form: {
+            name: this.dataShow[0].name,
+            email: this.dataShow[0].email,
+            information: this.dataShow[0].website
+          }
+          /*
+          form: {
+              name: this.formTest,
+              email: this.formTest.email,
+              information: ' '
+          },
+          */
         }     
     },
     methods: {
@@ -143,6 +146,7 @@ export default {
   height: 47px;
   border-radius: 20px;
   padding: 20px;
+  font-weight: bold;
 }
 
 .form label {
