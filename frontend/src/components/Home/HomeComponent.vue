@@ -60,7 +60,8 @@
             <div class="mt-5">
                 <div class="row">
                     <div class="col-12 col-md-12">
-                        <ListsComponent 
+                        <ListsComponent
+                            :key="reloadList"
                             :data="professores"
                             :info="['Nome completo', 'E-mail', 'Website']"
                             :title="'professores'"
@@ -109,10 +110,15 @@ export default {
             professores: [],
             conteudistas: [],
             errorOn: false,
+            reloadList: true
         }  
     },
     methods: {
-        
+
+        reload() {
+          this.reloadList = !this.reloadList;
+        },
+
         async getData() { 
             try {
 
@@ -129,10 +135,8 @@ export default {
                 this.errorOn = true;
             }
         },
+
         async deleteData($id) {
-
-          console.log($id);
-
           try {
             await axios.delete('http://localhost:8000/api/delete/' + $id)
 
@@ -143,6 +147,10 @@ export default {
                 .catch(function (error) {
                   console.log(error);
                 });
+
+                //this.reloadList = false;
+
+                setTimeout(this.reload, 1000);
 
           } catch (error) {
             console.log(error);
