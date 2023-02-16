@@ -72,6 +72,8 @@
                         />
                     </div>
 
+                  {{ reloadList }}
+
                     <!--
                     <div class="col-12 col-md-6">
                         <ListsComponent 
@@ -110,13 +112,14 @@ export default {
             professores: [],
             conteudistas: [],
             errorOn: false,
-            reloadList: true
+            reloadList: false,
         }  
     },
     methods: {
 
-        reload() {
-          this.reloadList = !this.reloadList;
+        teste() {
+          console.log("Reload!");
+          this.reloadList = !this.reloadList
         },
 
         async getData() { 
@@ -148,9 +151,7 @@ export default {
                   console.log(error);
                 });
 
-                //this.reloadList = false;
-
-                setTimeout(this.reload, 1000);
+                this.teste();
 
           } catch (error) {
             console.log(error);
