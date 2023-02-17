@@ -61,7 +61,6 @@
                 <div class="row">
                     <div class="col-12 col-md-12">
                         <ListsComponent
-                            :key="reloadList"
                             :data="professores"
                             :info="['Nome completo', 'E-mail', 'Website']"
                             :title="'professores'"
@@ -69,10 +68,10 @@
                             :columns="['Nome', 'E-mail', 'Website']"
                             :dataInsert="'prof'"
                             @delete="deleteData"
+                            @updateDataList="getData()"
+                            @updateCadList="getData()"
                         />
                     </div>
-
-                  {{ reloadList }}
 
                     <!--
                     <div class="col-12 col-md-6">
@@ -112,15 +111,9 @@ export default {
             professores: [],
             conteudistas: [],
             errorOn: false,
-            reloadList: false,
         }  
     },
     methods: {
-
-        teste() {
-          console.log("Reload!");
-          this.reloadList = !this.reloadList
-        },
 
         async getData() { 
             try {
@@ -146,18 +139,19 @@ export default {
                 .then(function (response) {
                   console.log(response);
                   window.alert("Professor deletado");
+
                 })
                 .catch(function (error) {
                   console.log(error);
                 });
 
-                this.teste();
+                await this.getData();
 
           } catch (error) {
             console.log(error);
           }
 
-        }
+        },
 
     },
     components: {

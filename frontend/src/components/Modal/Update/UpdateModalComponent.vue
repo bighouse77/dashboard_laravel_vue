@@ -60,16 +60,33 @@ export default {
             email: this.dataShow[0].email,
             information: this.dataShow[0].website
           }
-          /*
-          form: {
-              name: this.formTest,
-              email: this.formTest.email,
-              information: ' '
-          },
-          */
         }     
     },
     methods: {
+        /*
+        async getData() {
+          console.log('teste');
+          try {
+
+            let response = await axios.get('http://localhost:8000/api')
+
+            if (response.status === 200) {
+              this.professores = response.data.professores;
+              this.conteudistas = response.data.conteudistas;
+            } else {
+              this.errorOn = true;
+            }
+
+          } catch (error) {
+            this.errorOn = true;
+          }
+        },
+         */
+
+        updateData() {
+          this.$emit('updateData');
+        },
+
         popup() {
             this.$emit('close');
         },
@@ -88,14 +105,14 @@ export default {
                 this.$emit('close');
 
                 window.alert("Professor atualizado");
-
-                console.log(this.dataDel);
             
             } catch (error) {
                 console.log(error);
             }
 
+            this.updateData();
             this.$emit('close');
+
         }
     },
     props: {

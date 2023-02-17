@@ -64,6 +64,11 @@ export default {
         }     
     },
     methods: {
+
+        updateCad() {
+          this.$emit('cadOk');
+        },
+
         popup() {
             this.$emit('close');
         },
@@ -88,7 +93,11 @@ export default {
                 console.log(error);
             }
 
+            this.updateCad();
+
             this.$emit('close');
+
+
         }
     },
     props: {

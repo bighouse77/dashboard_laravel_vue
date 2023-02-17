@@ -48,6 +48,8 @@
 
               <UpdateModalComponent
                 @close="closeUpdate"
+                @updateData="updateDataList"
+                @updateCadastro="updateCadastroList"
                 v-if="showUpdate"
                 :columns="columns"
                 :dataDel="dataDel"
@@ -57,6 +59,7 @@
               <CadastroModalComponent
                 @close="closePopup"
                 @cadastroOk="showCadastroOk"
+                @cadOk="updateList"
                 v-if="showPopup"
                 :columns=columns
                 :cadastrotitle=title
@@ -71,6 +74,7 @@
 
 import CadastroModalComponent from "@/components/Modal/Cadastro/CadastroModalComponent.vue";
 import UpdateModalComponent from "@/components/Modal/Update/UpdateModalComponent.vue";
+//import {default as axios} from "axios";
 
 export default {
     name: "ListsComponent",
@@ -92,6 +96,9 @@ export default {
       }
     },
     methods: {
+        updateList() {
+          this.$emit('updateCadList')
+        },
         add() {
           this.showPopup = true;
         },
@@ -103,8 +110,9 @@ export default {
         },
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
+
         },
-        edit(id, name, email, info) {
+        async edit(id, name, email, info) {
           this.showUpdate = true;
           this.dataDel = id;
           this.dataShow = [{
@@ -112,10 +120,15 @@ export default {
             "email" : email,
             "website" : info
           }];
+          await this.getData();
         },
         deleteData(id) {
           this.$emit('delete', id);
         },
+        updateDataList(){
+          this.$emit('updateDataList');
+        }
+
     },
     components: {UpdateModalComponent, CadastroModalComponent}
 }
