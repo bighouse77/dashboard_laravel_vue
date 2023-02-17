@@ -58,8 +58,8 @@
 
               <CadastroModalComponent
                 @close="closePopup"
-                @cadastroOk="showCadastroOk"
-                @cadOk="updateList"
+                @cadOk="showCadastroOk"
+                @upOk="updateList"
                 v-if="showPopup"
                 :columns=columns
                 :cadastrotitle=title
@@ -99,6 +99,9 @@ export default {
         updateList() {
           this.$emit('updateCadList')
         },
+        updateDataList(){
+          this.$emit('updateDataList');
+        },
         add() {
           this.showPopup = true;
         },
@@ -125,9 +128,7 @@ export default {
         deleteData(id) {
           this.$emit('delete', id);
         },
-        updateDataList(){
-          this.$emit('updateDataList');
-        }
+
 
     },
     components: {UpdateModalComponent, CadastroModalComponent}

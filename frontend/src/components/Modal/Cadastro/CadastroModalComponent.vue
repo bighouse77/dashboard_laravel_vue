@@ -64,38 +64,41 @@ export default {
         }     
     },
     methods: {
-
+        /*
         updateCad() {
-          this.$emit('cadOk');
+
         },
+
+         */
 
         popup() {
             this.$emit('close');
         },
 
-        postData() {
+        async postData() {
 
             try {
-                axios.post('http://localhost:8000/api/create', this.form)
+                await axios.post('http://localhost:8000/api/create', this.form)
     
                 .then(function (response) {
                     console.log(response);
+
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
 
+                this.$emit('upOk');
+
                 this.$emit('close');
 
-                this.$emit('cadastroOk');
+                this.$emit('cadOk');
             
             } catch (error) {
                 console.log(error);
             }
 
-            this.updateCad();
 
-            this.$emit('close');
 
 
         }

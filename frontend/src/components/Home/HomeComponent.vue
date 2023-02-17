@@ -122,7 +122,8 @@ export default {
 
                 if (response.status === 200) {
                     this.professores = response.data.professores;
-                    this.conteudistas = response.data.conteudistas;
+                    //this.conteudistas = response.data.conteudistas;
+                    console.log("TA OK VEI !!!");
                 } else {
                     this.errorOn = true;
                 }
