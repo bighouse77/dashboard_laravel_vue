@@ -72,7 +72,6 @@
                             @updateCadList="getData()"
                         />
                     </div>
-
                     <!--
                     <div class="col-12 col-md-6">
                         <ListsComponent 
@@ -85,7 +84,6 @@
                         />
                     </div>
                     -->
-
                 </div>
             </div>
 
@@ -114,8 +112,8 @@ export default {
         }  
     },
     methods: {
+        async getData() {
 
-        async getData() { 
             try {
 
                 let response = await axios.get('http://localhost:8000/api') 
@@ -123,7 +121,6 @@ export default {
                 if (response.status === 200) {
                     this.professores = response.data.professores;
                     //this.conteudistas = response.data.conteudistas;
-                    console.log("TA OK VEI !!!");
                 } else {
                     this.errorOn = true;
                 }
@@ -132,8 +129,8 @@ export default {
                 this.errorOn = true;
             }
         },
-
         async deleteData($id) {
+
           try {
             await axios.delete('http://localhost:8000/api/delete/' + $id)
 
@@ -153,7 +150,6 @@ export default {
           }
 
         },
-
     },
     components: {
         DashboardComponent,

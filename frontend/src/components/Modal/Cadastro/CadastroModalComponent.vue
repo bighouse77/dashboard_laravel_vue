@@ -64,17 +64,9 @@ export default {
         }     
     },
     methods: {
-        /*
-        updateCad() {
-
-        },
-
-         */
-
         popup() {
             this.$emit('close');
         },
-
         async postData() {
 
             try {
@@ -97,10 +89,6 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-
-
-
-
         }
     },
     props: {

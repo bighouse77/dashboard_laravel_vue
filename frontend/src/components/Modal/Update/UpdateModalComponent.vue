@@ -63,34 +63,12 @@ export default {
         }     
     },
     methods: {
-        /*
-        async getData() {
-          console.log('teste');
-          try {
-
-            let response = await axios.get('http://localhost:8000/api')
-
-            if (response.status === 200) {
-              this.professores = response.data.professores;
-              this.conteudistas = response.data.conteudistas;
-            } else {
-              this.errorOn = true;
-            }
-
-          } catch (error) {
-            this.errorOn = true;
-          }
-        },
-         */
-
         updateData() {
           this.$emit('updateData');
         },
-
         popup() {
             this.$emit('close');
         },
-
         async postData() {
 
             try {
@@ -109,10 +87,8 @@ export default {
             } catch (error) {
                 console.log(error);
             }
-
             this.updateData();
             this.$emit('close');
-
         }
     },
     props: {

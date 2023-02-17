@@ -128,8 +128,6 @@ export default {
         deleteData(id) {
           this.$emit('delete', id);
         },
-
-
     },
     components: {UpdateModalComponent, CadastroModalComponent}
 }
