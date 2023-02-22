@@ -38,7 +38,13 @@
                         <button @click="deleteData(user.id)"><i class="fa-solid fa-trash"></i></button>
                       </div>
                     </td>     
-                  </tr>        
+                  </tr>
+
+                  <DeleteModalComponent
+                      @close="closeDelete"
+                      @deleteOk="deleteData"
+                      v-if="showDelete"
+                  />
                 </tbody>
               </table>
 
@@ -49,7 +55,6 @@
               <UpdateModalComponent
                 @close="closeUpdate"
                 @updateData="updateDataList"
-                @updateCadastro="updateCadastroList"
                 v-if="showUpdate"
                 :columns="columns"
                 :dataDel="dataDel"
@@ -66,6 +71,8 @@
                 :dataIns=dataInsert
               />
 
+
+
         </div>
     </div>
 </template>
@@ -74,6 +81,7 @@
 
 import CadastroModalComponent from "@/components/Modal/Cadastro/CadastroModalComponent.vue";
 import UpdateModalComponent from "@/components/Modal/Update/UpdateModalComponent.vue";
+import DeleteModalComponent from "@/components/Modal/Delete/DeleteModalComponent.vue";
 //import {default as axios} from "axios";
 
 export default {
@@ -90,8 +98,10 @@ export default {
       return {
         showPopup: false,
         showUpdate: false,
+        showDelete: false,
         cadastroRealizadoOn: false,
         dataDel: '',
+        dataDelete: '',
         dataShow: [],
       }
     },
@@ -111,6 +121,9 @@ export default {
         closeUpdate() {
           this.showUpdate = false;
         },
+        closeDelete() {
+          this.showDelete = false;
+        },
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
 
@@ -126,10 +139,18 @@ export default {
           await this.getData();
         },
         deleteData(id) {
-          this.$emit('delete', id);
+          if (this.showDelete === false){
+            this.showDelete = true;
+            this.dataDelete = id;
+          }
+          else {
+            console.log("TO AQUI PARÇA");
+            this.closeDelete();
+            this.$emit('delete', this.dataDelete);
+          }
         },
     },
-    components: {UpdateModalComponent, CadastroModalComponent}
+    components: {DeleteModalComponent, UpdateModalComponent, CadastroModalComponent}
 }
 </script>
 
