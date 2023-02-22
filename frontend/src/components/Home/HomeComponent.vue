@@ -136,7 +136,7 @@ export default {
 
                 .then(function (response) {
                   console.log(response);
-                  window.alert("Professor deletado");
+                  //window.alert("Professor deletado");
 
                 })
                 .catch(function (error) {

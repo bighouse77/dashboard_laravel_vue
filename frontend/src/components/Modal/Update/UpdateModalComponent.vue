@@ -82,7 +82,7 @@ export default {
 
                 this.$emit('close');
 
-                window.alert("Professor atualizado");
+                //window.alert("Professor atualizado");
             
             } catch (error) {
                 console.log(error);

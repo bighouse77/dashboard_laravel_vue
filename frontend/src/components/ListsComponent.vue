@@ -126,7 +126,9 @@ export default {
         },
         showCadastroOk(){
           this.cadastroRealizadoOn = true;
-
+          setTimeout(function () {
+            this.cadastroRealizadoOn = false;
+          }.bind(this), 7000);
         },
         async edit(id, name, email, info) {
           this.showUpdate = true;
