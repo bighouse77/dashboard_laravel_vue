@@ -1,7 +1,7 @@
 <template>
 
-    <div v-if="cadastroRealizadoOn" class="alert alert-success" role="alert">
-      Cadastro realizado com sucesso!
+    <div v-if="cadastroOn" class="alert alert-success" role="alert">
+      Cadastro {{ action }} com sucesso!
     </div>
 
     <div class="lists">
@@ -26,7 +26,7 @@
                     <td>{{ user.name }}</td>
                     <td>{{ user.email }}</td>
                     <td class="btn-style">
-                      {{ description == 'Professores' ? user.website : user.disciplina}}
+                      {{ description === 'Professores' ? user.website : user.disciplina }}
                       <div class="actions">
                         <button @click="edit(
                             user.id,
@@ -71,8 +71,6 @@
                 :dataIns=dataInsert
               />
 
-
-
         </div>
     </div>
 </template>
@@ -93,16 +91,18 @@ export default {
         description: String,
         dataInsert: String,
         columns: {},
+        actionShow: String
     },
     data() {
       return {
         showPopup: false,
         showUpdate: false,
         showDelete: false,
-        cadastroRealizadoOn: false,
+        cadastroOn: false,
         dataDel: '',
         dataDelete: '',
         dataShow: [],
+        action: ''
       }
     },
     methods: {
@@ -111,6 +111,8 @@ export default {
         },
         updateDataList(){
           this.$emit('updateDataList');
+          let x = 'alterado';
+          this.showCadastroOk(x);
         },
         add() {
           this.showPopup = true;
@@ -124,11 +126,12 @@ export default {
         closeDelete() {
           this.showDelete = false;
         },
-        showCadastroOk(){
-          this.cadastroRealizadoOn = true;
+        showCadastroOk(x){
+          this.cadastroOn = true;
+          this.action = x;
           setTimeout(function () {
-            this.cadastroRealizadoOn = false;
-          }.bind(this), 7000);
+            this.cadastroOn = false;
+          }.bind(this), 6000);
         },
         async edit(id, name, email, info) {
           this.showUpdate = true;
@@ -146,8 +149,9 @@ export default {
             this.dataDelete = id;
           }
           else {
-            console.log("TO AQUI PARÇA");
+            this.action = "apagado";
             this.closeDelete();
+            this.showCadastroOk(this.action);
             this.$emit('delete', this.dataDelete);
           }
         },

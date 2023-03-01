@@ -67,6 +67,7 @@
                             :description="'Professores'" 
                             :columns="['Nome', 'E-mail', 'Website']"
                             :dataInsert="'prof'"
+                            :actionShow="action"
                             @delete="deleteData"
                             @updateDataList="getData()"
                             @updateCadList="getData()"
@@ -109,40 +110,36 @@ export default {
             professores: [],
             conteudistas: [],
             errorOn: false,
+            action: ' '
         }  
     },
     methods: {
+        // READ
         async getData() {
-
             try {
-
-                let response = await axios.get('http://localhost:8000/api') 
-
+                let response = await axios.get('http://localhost:8000/api')
                 if (response.status === 200) {
                     this.professores = response.data.professores;
                     //this.conteudistas = response.data.conteudistas;
                 } else {
                     this.errorOn = true;
                 }
-
             } catch (error) {
                 this.errorOn = true;
             }
         },
+        // DELETE
         async deleteData($id) {
-
           try {
             await axios.delete('http://localhost:8000/api/delete/' + $id)
 
                 .then(function (response) {
                   console.log(response);
-                  //window.alert("Professor deletado");
-
                 })
                 .catch(function (error) {
                   console.log(error);
                 });
-
+                this.action = 'apagado';
                 await this.getData();
 
           } catch (error) {

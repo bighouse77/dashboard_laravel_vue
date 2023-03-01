@@ -67,11 +67,11 @@ export default {
         popup() {
             this.$emit('close');
         },
-        async postData() {
 
+        // CREATE
+        async postData() {
             try {
                 await axios.post('http://localhost:8000/api/create', this.form)
-    
                 .then(function (response) {
                     console.log(response);
                 })
@@ -79,11 +79,14 @@ export default {
                     console.log(error);
                 });
 
+                let x;
+                x = 'realizado';
+
                 this.$emit('upOk');
 
                 this.$emit('close');
 
-                this.$emit('cadOk');
+                this.$emit('cadOk', x);
             
             } catch (error) {
                 console.log(error);

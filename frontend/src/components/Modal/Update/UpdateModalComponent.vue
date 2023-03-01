@@ -69,8 +69,9 @@ export default {
         popup() {
             this.$emit('close');
         },
-        async postData() {
 
+        // UPDATE
+        async postData() {
             try {
                 await axios.put('http://localhost:8000/api/put/' + this.dataDel, this.form)
                   .then(function (response) {
@@ -79,11 +80,7 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
-
                 this.$emit('close');
-
-                //window.alert("Professor atualizado");
-            
             } catch (error) {
                 console.log(error);
             }
